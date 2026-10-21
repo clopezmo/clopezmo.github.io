@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carlos López Mora · Portfolio</title>
+  <meta name="description" content="Business Analyst Junior especializado en datos, IA generativa y automatización de procesos. Proyectos, formación y certificaciones.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --text: #1b1f27;
+      --muted: #5b6474;
+      --line: #e3e6ec;
+      --accent: #2f5bd3;
+      --accent-soft: #e8eefc;
+      --on-accent: #ffffff;
+      --badge-bg: #fff4e0;
+      --badge-text: #8a5a00;
+      --radius: 14px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f1218;
+        --surface: #171b23;
+        --text: #e8ebf1;
+        --muted: #9aa3b2;
+        --line: #2a303b;
+        --accent: #7b9cff;
+        --accent-soft: #1e2840;
+        --on-accent: #0f1218;
+        --badge-bg: #3a2c12;
+        --badge-text: #f3c56b;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--accent); }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+    /* Navegación */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; gap: 20px; align-items: center; height: 56px; overflow-x: auto; scrollbar-width: none; }
+    nav .wrap::-webkit-scrollbar { display: none; }
+    nav .brand { font-weight: 700; color: var(--text); text-decoration: none; white-space: nowrap; margin-right: auto; }
+    nav a.link { color: var(--muted); text-decoration: none; font-size: 0.92rem; white-space: nowrap; }
+    nav a.link:hover { color: var(--accent); }
+
+    /* Cabecera */
+    header { padding: 72px 0 48px; }
+    .eyebrow { color: var(--accent); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 8px; }
+    h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.1; margin: 0 0 16px; }
+    .lead { font-size: 1.15rem; color: var(--muted); max-width: 680px; margin: 0 0 12px; }
+    .meta { color: var(--muted); font-size: 0.95rem; margin: 0 0 28px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-block; padding: 11px 20px; border-radius: 999px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      border: 1px solid var(--accent);
+    }
+    .btn.primary { background: var(--accent); color: var(--on-accent); }
+    .btn.ghost { color: var(--accent); background: transparent; }
+
+    /* Secciones */
+    section { padding: 40px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: 1.6rem; margin: 0 0 8px; }
+    .section-intro { color: var(--muted); margin: 0 0 28px; }
+
+    /* Tarjetas de proyecto */
+    .grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 22px;
+      display: flex; flex-direction: column;
+    }
+    .card.featured { grid-column: 1 / -1; }
+    .card h3 { margin: 0 0 4px; font-size: 1.15rem; }
+    .card .where { color: var(--muted); font-size: 0.9rem; margin: 0 0 14px; }
+    .card dl { margin: 0 0 14px; }
+    .card dt { font-weight: 600; font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.03em; }
+    .card dd { margin: 2px 0 12px; }
+    .card p { margin: 0 0 12px; }
+    .card .links { margin-top: auto; font-size: 0.92rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; }
+    .tags li { background: var(--accent-soft); color: var(--accent); font-size: 0.82rem; font-weight: 500; padding: 4px 10px; border-radius: 999px; }
+    .badge { display: inline-block; background: var(--badge-bg); color: var(--badge-text); font-size: 0.78rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; align-self: flex-start; }
+
+    /* Listas de formación y certificaciones */
+    .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .timeline li { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 22px; }
+    .timeline strong { display: block; }
+    .timeline .when { color: var(--muted); font-size: 0.9rem; }
+
+    .skills { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .skills h3 { font-size: 1rem; margin: 0 0 10px; }
+
+    footer { padding: 40px 0 60px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.92rem; }
+
+    @media (max-width: 560px) {
+      header { padding: 48px 0 32px; }
+      nav a.link { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="#">Carlos López Mora</a>
+      <a class="link" href="#proyectos">Proyectos</a>
+      <a class="link" href="#formacion">Formación</a>
+      <a class="link" href="#certificaciones">Certificaciones</a>
+      <a class="link" href="#competencias">Competencias</a>
+      <a class="link" href="#contacto">Contacto</a>
+    </div>
+  </nav>
+
+  <header>
+    <div class="wrap">
+      <p class="eyebrow">Business Analyst Junior · Datos, IA y Transformación Digital</p>
+      <h1>Carlos López Mora</h1>
+      <p class="lead">
+        Combino visión de negocio con datos e IA generativa: detecto tareas manuales en los procesos,
+        las automatizo y mido el impacto con KPIs.
+      </p>
+      <p class="meta">Puertollano, Ciudad Real · Disponible para remoto, híbrido o presencial · Español nativo, inglés B1, italiano A2</p>
+      <div class="actions">
+        <a class="btn primary" href="CV-Carlos-Lopez-Mora.pdf" target="_blank" rel="noopener">Descargar CV</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/carlos-lopez-mora-a23741405" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="mailto:carloslopez11mora@gmail.com">Escríbeme</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="proyectos">
+      <div class="wrap">
+        <h2>Proyectos</h2>
+        <p class="section-intro">Cada proyecto sigue el mismo esquema: el problema, lo que hice, las herramientas y el resultado.</p>
+
+        <div class="grid">
+
+
+          <article class="card">
+            <h3>TFG: IA generativa aplicada a la empresa</h3>
+            <p class="where">Universidad Pontificia de Salamanca · Trabajo de Fin de Grado</p>
+            <ul class="tags"><li>IA generativa</li><li>Estrategia</li><li>Análisis de negocio</li></ul>
+            <p>Análisis de casos de uso de la IA generativa y de su impacto en la estrategia y la operativa de las empresas.</p>
+          </article>
+
+          <article class="card">
+            <h3>Webs con WordPress para negocios</h3>
+            <p class="where">Proyecto independiente</p>
+            <ul class="tags"><li>WordPress</li><li>UX</li><li>SEO</li></ul>
+            <p>Diseño y desarrollo de sitios web para mejorar la presencia digital de negocios, aplicando principios de UX y buenas prácticas de SEO.</p>
+          </article>
+
+          <article class="card">
+            <h3>Marketing digital con SEO y Google Analytics</h3>
+            <p class="where">Proyecto independiente</p>
+            <ul class="tags"><li>SEO</li><li>Google Analytics</li><li>Canva</li></ul>
+            <p>Estrategias de marketing digital apoyadas en SEO, con seguimiento y optimización del rendimiento web en Google Analytics.</p>
+          </article>
+
+          <article class="card">
+            <span class="badge">En desarrollo</span>
+            <h3>Dashboard de KPIs en Power BI con datos públicos</h3>
+            <ul class="tags"><li>Power BI</li><li>Power Query</li><li>DAX</li></ul>
+            <p>Cuadro de mando con datos abiertos (INE / datos.gob.es): modelo en estrella, medidas DAX y conclusiones de negocio.</p>
+          </article>
+
+          <article class="card">
+            <span class="badge">En desarrollo</span>
+            <h3>Análisis de datos con Python y pandas</h3>
+            <ul class="tags"><li>Python</li><li>pandas</li><li>SQL</li></ul>
+            <p>Limpieza y análisis de un conjunto de datos público en un notebook, con el resultado exportado a Power BI.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="formacion">
+      <div class="wrap">
+        <h2>Formación</h2>
+        <p class="section-intro">Negocio y tecnología, con especialización en IA aplicada a la empresa.</p>
+        <ul class="timeline">
+          <li>
+            <strong>Máster en Inteligencia Artificial Empresarial</strong>
+            Escuela de Negocios Europea de Barcelona
+            <div class="when">2026 · En curso, finalización prevista en diciembre de 2026</div>
+          </li>
+          <li>
+            <strong>Grado en Administración y Dirección de Empresas Tecnológicas</strong>
+            Universidad Pontificia de Salamanca
+            <div class="when">2022 – 2026 · TFG sobre IA generativa en la empresa · Proyectos y talleres con Scrum</div>
+          </li>
+          <li>
+            <strong>Erasmus+</strong>
+            Università degli Studi di Milano-Bicocca (Milán, Italia)
+            <div class="when">2025 – 2026</div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="certificaciones">
+      <div class="wrap">
+        <h2>Certificaciones</h2>
+        <p class="section-intro">Plan de certificación en curso.</p>
+        <ul class="timeline">
+          <li>
+            <span class="badge">En preparación</span>
+            <strong>Jira Fundamentals</strong>
+            Atlassian
+          </li>
+          <li>
+            <span class="badge">En preparación</span>
+            <strong>Inglés B2</strong>
+            Certificado oficial (Cambridge B2 First, Linguaskill o APTIS)
+          </li>
+          <li>
+            <span class="badge">En preparación</span>
+            <strong>PL-300: Power BI Data Analyst</strong>
+            Microsoft
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="competencias">
+      <div class="wrap">
+        <h2>Competencias</h2>
+        <p class="section-intro">Herramientas que uso y en qué contexto.</p>
+        <div class="skills">
+          <div>
+            <h3>Datos y BI</h3>
+            <ul class="tags"><li>Excel avanzado</li><li>Power BI</li><li>SQL</li></ul>
+          </div>
+          <div>
+            <h3>IA y automatización</h3>
+            <ul class="tags"><li>Claude</li><li>IA generativa</li><li>Automatización de procesos</li></ul>
+          </div>
+          <div>
+            <h3>Negocio y métodos</h3>
+            <ul class="tags"><li>Análisis de negocio</li><li>Transformación digital</li><li>Scrum</li><li>Gestión de proyectos</li></ul>
+          </div>
+          <div>
+            <h3>Marketing y web</h3>
+            <ul class="tags"><li>SEO</li><li>Google Analytics</li><li>WordPress</li><li>Canva</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contacto">
+    <div class="wrap">
+      <h2>Contacto</h2>
+      <p>¿Buscas a alguien que una negocio, datos e IA? Escríbeme a
+        <a href="mailto:carloslopez11mora@gmail.com">carloslopez11mora@gmail.com</a>
+        o por <a href="https://www.linkedin.com/in/carlos-lopez-mora-a23741405" target="_blank" rel="noopener">LinkedIn</a>.</p>
+      <p>© 2026 Carlos López Mora</p>
+    </div>
+  </footer>
+
+</body>
+</html>

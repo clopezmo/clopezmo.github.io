@@ -101,6 +101,8 @@
     .badge { display: inline-block; background: var(--badge-bg); color: var(--badge-text); font-size: 0.78rem; font-weight: 600; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; align-self: flex-start; }
 
     .badge.done { background: var(--accent-soft); color: var(--accent); }
+    .badge-list { margin: 10px 0 0; padding-left: 18px; color: var(--muted); font-size: 0.92rem; display: grid; gap: 4px; }
+    .timeline .badge-list li { background: none; border: 0; padding: 0; }
 
     /* Listas de formación y certificaciones */
     .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
@@ -228,16 +230,17 @@
         <p class="section-intro">Insignias obtenidas y plan de certificación en IA y datos en curso.</p>
         <ul class="timeline">
           <li>
-            <span class="badge done">Obtenida</span>
-            <strong>Claude 101</strong>
-            Claude Academy (Anthropic) · Insignia de finalización de curso
-            <div class="when">Octubre 2026 · <a href="https://academy.claude.com/verify/97b7615d5cf6ff88cd86546b1a76c46f" target="_blank" rel="noopener">Verificar credencial</a></div>
-          </li>
-          <li>
-            <span class="badge done">Obtenida</span>
-            <strong>Introduction to Claude Cowork</strong>
-            Claude Academy (Anthropic) · Insignia de finalización de curso
-            <div class="when">Octubre 2026 · <a href="https://academy.claude.com/verify/da1365f1e469928def12c4b85c5877c1" target="_blank" rel="noopener">Verificar credencial</a></div>
+            <span class="badge done">Obtenidas</span>
+            <strong>Claude Academy (Anthropic)</strong>
+            Insignias de finalización de curso · Octubre 2026
+            <ul class="badge-list">
+              <li>Claude 101 · <a href="https://academy.claude.com/verify/97b7615d5cf6ff88cd86546b1a76c46f" target="_blank" rel="noopener">Verificar</a></li>
+              <li>Introduction to Claude Cowork · <a href="https://academy.claude.com/verify/da1365f1e469928def12c4b85c5877c1" target="_blank" rel="noopener">Verificar</a></li>
+              <li>AI Fluency: Framework and foundations · <a href="https://academy.claude.com/verify/75b7060a06ef66d9b5b16a1f95e547a3" target="_blank" rel="noopener">Verificar</a></li>
+              <li>AI capabilities and limitations · <a href="https://academy.claude.com/verify/17d84e4faae93ccc163b5249d73ca68c" target="_blank" rel="noopener">Verificar</a></li>
+              <li>Claude Code 101 · <a href="https://academy.claude.com/verify/f941a6bc17b77b60633bf781212c2429" target="_blank" rel="noopener">Verificar</a></li>
+              <li>Deploying Claude Enterprise with confidence · <a href="https://academy.claude.com/verify/484c79dc95d428b3e892fefdef00729b" target="_blank" rel="noopener">Verificar</a></li>
+            </ul>
           </li>
           <li>
             <span class="badge">En preparación</span>
